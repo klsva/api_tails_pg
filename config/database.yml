@@ -30,4 +30,4 @@ test:
 production:
   <<: *default
   database: base_prod
-  password: <%=ENV['']%>
+  password: <%=ENV['EXERCISE_DATABASE_PASSWORD']%>
