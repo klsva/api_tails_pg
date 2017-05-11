@@ -9,6 +9,7 @@ default: &default
   adapter: postgresql
   encoding: UTF8
   username: lena
+  password: password
   timeout: 5000
   reaping_frequency: 30
   pool: <%=ENV.fetch("RAILS_MAX_THREADS"){ 5 }%>
@@ -17,7 +18,7 @@ default: &default
 development:
   <<: *default
   database: base_dev
-  password: <%=Rails.application.secrets[:database][:password]%>
+  #password: <%=Rails.application.secrets[:database][:password]%>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,9 +26,9 @@ development:
 test:
   <<: *default
   database: base_test
-  password: <%=Rails.application.secrets[:database][:password]%>
+  #password: <%=Rails.application.secrets[:database][:password]%>
 
 production:
   <<: *default
   database: base_prod
-  password: <%=ENV['EXERCISE_DATABASE_PASSWORD']%>
+  #password: <%=ENV['EXERCISE_DATABASE_PASSWORD']%>
